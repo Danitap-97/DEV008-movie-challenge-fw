@@ -1,0 +1,11 @@
+{
+  "name": "dev008-movie-challenge-fw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "Daniela Tapias",
+  "license": "ISC"
+}
