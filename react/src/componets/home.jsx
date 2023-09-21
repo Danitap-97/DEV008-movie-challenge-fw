@@ -1,5 +1,5 @@
 import  { useState, useEffect } from 'react';
-
+import './home.css'
 export const Componentes = () => {
   const [data, setData] = useState([]);
   
@@ -26,10 +26,14 @@ export const Componentes = () => {
 
   return (
     <div className="App">
+      <header>
       <h1>SpectrumCine</h1>
-      <ul>
+      <input type='text' placeholder='buscar'/>
+      </header>
+      <section>
+      
         {data.map((movie) => (
-          <li key={movie.id}>
+          <div key={movie.id}>
             <h2>{movie.title}</h2>
             <p>{movie.overview}</p>
             <p>Fecha de lanzamiento: {movie.release_date}</p>
@@ -39,9 +43,10 @@ export const Componentes = () => {
                 alt={`${movie.title} Poster`}
               />
             )}
-          </li>
+          </div>
         ))}
-      </ul>
+    
+      </section>
     </div>
   );
 };

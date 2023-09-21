@@ -4,12 +4,14 @@ import viteLogo from '/vite.svg' */
 import './App.css'
 import { Componentes } from './componets/Componentes'
 
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
     <Componentes/>
+    
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -29,7 +31,7 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p> */}
+  </p> */}
     </>
   )
 }
