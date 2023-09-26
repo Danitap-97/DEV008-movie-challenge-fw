@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './homeStyle.css';
 import MovieList from './MovieList';
 
 export const Home = () => {
   const [data, setData] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetch(
@@ -25,24 +27,48 @@ export const Home = () => {
       });
   }, []);
 
-  // TODO: crear funciino que se ejecute con el onchange del input buscar
+  // Función para buscar películas
+  const searchMovies = () => {
+    const url = `https://api.themoviedb.org/3/search/movie?query=${searchTerm}&include_adult=false&language=en-US&page=1&api_key=f54cb438a37076a7b6dbcab3ee848999`;
 
-  // TODO: dentor de la funcion obtienes el texto que el usuario escribio, y con ese valor llamar al endpoint de buscar pelicula
-  // TODO: const url = `https://api.themoviedb.org/3/search/movie?query=${palabraQueElUsuarioEscribio}&include_adult=false&language=en-US&page=1&api_key=f54cb438a37076a7b6dbcab3ee848999`;
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setSearchResults(data.results);
+      });
+  };
+
+  // Manejar el cambio en el input de búsqueda
+  const handleSearchInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  // TODO: Agregar el onchange al input de búsqueda
+  // Aquí usamos la función de búsqueda cuando el input cambia
+  useEffect(() => {
+    searchMovies();
+  }, [searchTerm]);
 
   return (
     <>
       <header className="navigation">
         <h1>SpectrumCine</h1>
-        {/* TODO: Agregar el onchange */}
-        <input type="text" placeholder="Buscar..." />
+        {/* TODO: Agregar el onchange y el valor del input */}
+        <input
+          type="text"
+          placeholder="Buscar..."
+          onChange={handleSearchInputChange}
+          value={searchTerm}
+        />
       </header>
       <main>
-        {/* TODO: Agregar otro listado de peliculas buscadas */}
-        {/* TODO: {peliculasEncontradas && peliculasEncontradas.lenght > 0 && <>
-          <h2>Peliculas encontradas</h2>
-          <MovieList data={peliculasEncontradas} />
-        </>} */}
+        {/* TODO: Agregar otro listado de películas buscadas */}
+        {searchResults.length > 0 && (
+          <>
+            <h2>Películas encontradas</h2>
+            <MovieList data={searchResults} />
+          </>
+        )}
         <h2>Últimos estrenos</h2>
         <MovieList data={data} />
       </main>
