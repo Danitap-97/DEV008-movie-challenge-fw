@@ -4,7 +4,7 @@ const MovieItem = ({ movie }) => {
   return (
     <article className="movie" key={movie.id}>
       <div className="movie-info">
-        <h2>{movie.title}</h2>
+        <h3>{movie.title}</h3>
         <p>{movie.overview}</p>
         <p>Fecha de lanzamiento: {movie.release_date}</p>
       </div>
