@@ -1,0 +1,78 @@
+*{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+header {
+  margin-bottom: 24px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  -webkit-box-shadow: 0px 0px 23px -7px rgba(168, 198, 207, 0.75);
+  -moz-box-shadow: 0px 0px 23px -7px rgba(168, 198, 207, 0.75);
+  box-shadow: 0px 0px 23px -7px rgb(168, 198, 207, 0.75);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* Estilo para la barra de navegación */
+.navigation {
+  display: flex; 
+  justify-content: space-between;
+  background-color: #333; 
+  color: #fff; 
+  padding: 10px 20px; 
+}
+
+
+.navigation h1 {
+  margin: 0; 
+}
+
+
+.navigation input[type="text"] {
+  padding: 5px; 
+  border: none; 
+  border-radius: 5px;
+  background-color: #444; 
+  color: #fff; 
+}
+
+
+.navigation input[type="text"]::placeholder {
+  color: #ccc; 
+}
+
+
+.navigation input[type="text"]:hover {
+  background-color: #555; 
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+  /* Estilos específicos para pantallas pequeñas */
+}
+
+/* Estilos para pantallas medianas (tabletas) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* Estilos específicos para pantallas medianas */
+}
+
+/* Estilos para pantallas grandes (computadoras de escritorio) */
+@media screen and (min-width: 1025px) {
+  /* Estilos específicos para pantallas grandes */
+}
+
