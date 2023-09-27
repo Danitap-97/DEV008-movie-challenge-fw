@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import './homeStyle.css';
 import MovieList from './MovieList';
 
@@ -6,6 +6,7 @@ export const Home = () => {
   const [data, setData] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  let timer;
 
   useEffect(() => {
     fetch(
@@ -40,7 +41,11 @@ export const Home = () => {
 
   // Manejar el cambio en el input de búsqueda
   const handleSearchInputChange = (event) => {
-    setSearchTerm(event.target.value);
+    const valor = event.target.value;
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        setSearchTerm(valor);
+       }, 300);
   };
 
   // TODO: Agregar el onchange al input de búsqueda
@@ -58,7 +63,6 @@ export const Home = () => {
           type="text"
           placeholder="Buscar..."
           onChange={handleSearchInputChange}
-          value={searchTerm}
         />
       </header>
       <main>
