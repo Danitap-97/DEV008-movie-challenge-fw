@@ -64,6 +64,14 @@ header {
 /* Estilos para pantallas pequeñas (móviles) */
 @media screen and (max-width: 768px) {
   /* Estilos específicos para pantallas pequeñas */
+  .navigation{
+    width: 100%;
+  }
+.container{
+  width: 50%;
+}
+
+
 }
 
 /* Estilos para pantallas medianas (tabletas) */
